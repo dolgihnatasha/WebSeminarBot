@@ -11,7 +11,7 @@ const host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 let bot = new TelegramBot(token, {webHook: {port: port, host: host}});
 // OpenShift enroutes :443 request to OPENSHIFT_NODEJS_PORT
-bot.setWebHook('https://webseminar-bot.herokuapp.com:443/bot'+token);
+bot.setWebHook('https://webseminar-bot.herokuapp.com/:443/bot'+token);
 
 bot.on('message', function (msg) {
     let chatId = msg.chat.id;

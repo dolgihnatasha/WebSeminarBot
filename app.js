@@ -4,8 +4,8 @@
 
 const MongoClient = require('mongodb').MongoClient;
 
-// const mongoUri = 'mongodb://dbuser:2611natasha@ds050539.mlab.com:50539/webseminardata';
-//
+const mongoUri = 'mongodb://dbuser:2611natasha@ds050539.mlab.com:50539/webseminardata';
+
 MongoClient.connect(mongoUri, function (err, db) {
 
     let TelegramBot = require('node-telegram-bot-api');

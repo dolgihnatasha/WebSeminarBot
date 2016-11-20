@@ -3,8 +3,10 @@
 
 module.exports = function (bot) {
 
-        bot.onText(/\/echo (.+)/, function (msg, match) {
+    let subscribers = [103745732];
 
+
+    bot.onText(/\/echo (.+)/, function (msg, match) {
         let fromId = msg.from.id;
         let resp = match[1];
         bot.sendMessage(fromId, resp);
@@ -25,8 +27,6 @@ module.exports = function (bot) {
         }
     });
 
-
-
     bot.onText(/\/addevent (.+); (.+)/, function (msg, match){
         // console.log(msg);
         let fromId = msg.from.id;
@@ -34,34 +34,31 @@ module.exports = function (bot) {
         bot.sendMessage(fromId, 'Событие ' + match[1] + ' добавлено. ' + match[2])
 
     });
-    //
-    // const MongoClient = require('mongodb').MongoClient;
 
+    // const MongoClient = require('mongodb').MongoClient;
     // const mongoUri = 'mongodb://dbuser:2611natasha@ds050539.mlab.com:50539/webseminardata';
-    //
     // MongoClient.connect(mongoUri, function (err, db) {
     //
     //     let connection = db;
     //
-    //     let subscribers = [103745732];
+    //
     //
     //     // Matches /echo [whatever]
     //
     //
     // });
+    // bot.on('message', function (msg) {
+    //     let chatId = msg.chat.id;
+    //     bot.sendMessage(chatId, 'hello!', {caption: 'Lovely kittens'});
+    // });
 
-// bot.on('message', function (msg) {
-//     let chatId = msg.chat.id;
-//     bot.sendMessage(chatId, 'hello!', {caption: 'Lovely kittens'});
-// });
-
-// Any kind of message
-// bot.sendMessage(USER, 'How old are you?', opts)
-//     .then(function (sended) {
-//         let chatId = sended.chat.id;
-//         let messageId = sended.message_id;
-//         bot.onReplyToMessage(chatId, messageId, function (message) {
-//             console.log('User is %s years old', message.text);
-//         });
-//     });
+    // Any kind of message
+    // bot.sendMessage(USER, 'How old are you?', opts)
+    //     .then(function (sended) {
+    //         let chatId = sended.chat.id;
+    //         let messageId = sended.message_id;
+    //         bot.onReplyToMessage(chatId, messageId, function (message) {
+    //             console.log('User is %s years old', message.text);
+    //         });
+    //     });
 };

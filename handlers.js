@@ -4,7 +4,7 @@
 module.exports = function (bot) {
 
     let subscribers = [103745732];
-
+    console.log('hey')
 
     bot.onText(/\/echo (.+)/, function (msg, match) {
         let fromId = msg.from.id;

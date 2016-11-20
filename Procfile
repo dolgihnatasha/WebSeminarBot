@@ -1,3 +1,1 @@
-/* .Procfile */
-
 worker: npm start

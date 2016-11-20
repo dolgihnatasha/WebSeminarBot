@@ -6,8 +6,8 @@ let TelegramBot = require('node-telegram-bot-api');
 const token = '238471408:AAG55S_j7XegBq1GmEJVJI1BN-sbJpEpzSQ';
 
 // See https://developers.openshift.com/en/node-js-environment-variables.html
-const port = process.env.OPENSHIFT_NODEJS_PORT;
-const host = process.env.OPENSHIFT_NODEJS_IP;
+const port = process.env.OPENSHIFT_NODEJS_PORT || 443;
+const host = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 let bot = new TelegramBot(token, {webHook: {port: port, host: host}});
 // OpenShift enroutes :443 request to OPENSHIFT_NODEJS_PORT

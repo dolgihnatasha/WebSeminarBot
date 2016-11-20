@@ -18,7 +18,8 @@
     "hbs": "4.0.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "tether-tooltip": "^1.2.0"
+    "tether-tooltip": "^1.2.0",
+    "mongodb": "latest"
   },
   "engines": {
     "node": "4.4.1",

@@ -15,8 +15,5 @@
   "engines": {
     "node": "4.4.1",
     "npm": "2.14.20"
-  },
-  "devDependencies": {
-    "telegram-node-bot": "latest"
   }
 }

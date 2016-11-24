@@ -11,11 +11,12 @@ var host = '0.0.0.0';
 
 var bot = new TelegramBot(token, {webHook: {port: port, host: host}});
 // OpenShift enroutes :443 request to OPENSHIFT_NODEJS_PORT
-bot.setWebHook('https://webseminar-bot.herokuapp.com/:443/bot'+token);
+// bot.setWebHook('https://webseminar-bot.herokuapp.com/:443/bot'+token);
+bot.setWebHook('https://webseminar-bot.azurewebsites.net/:443/bot'+token);
 
-bot.on('message', function (msg) {
-    var chatId = msg.chat.id;
-    bot.sendMessage(chatId, "I'm alive!");
-});
+// bot.on('message', function (msg) {
+//     var chatId = msg.chat.id;
+//     bot.sendMessage(chatId, "I'm alive!");
+// });
 
 require('./handlers')(bot);

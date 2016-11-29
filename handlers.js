@@ -5,16 +5,6 @@ module.exports = function (bot) {
     var MongoClient = require('mongodb').MongoClient;
     var mongoUri = 'mongodb://db_user:2611natasha@ds050539.mlab.com:50539/webseminardata';
 
-    function switchOnNotifications(events_collection, subscribers_collection) {
-        events_collection.find({}, {_id: 0})
-            .toArray()
-            .then(function (res) {
-                for (var i = 0; i < res.length; i++) {
-                    console.log(res[i])
-                }
-                // console.log(res)
-            })
-    }
 
     MongoClient.connect(mongoUri, function (err, db) {
         console.log('hey', err);
@@ -22,9 +12,6 @@ module.exports = function (bot) {
             var events = db.collection('events');
             var subscribers = db.collection('subscribers');
 
-            switchOnNotifications(events, subscribers);
-
-            // var subscribers = [103745732];
             bot.onText(/\/echo (.+)/, function (msg, match) {
                 var fromId = msg.from.id;
                 var resp = match[1];

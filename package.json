@@ -4,7 +4,6 @@
   "main": "app.js",
   "private": true,
   "scripts": {
-    "deploy": "git push heroku master",
     "start": "node app.js"
   },
   "license": "MIT",
@@ -13,7 +12,7 @@
     "mongodb": "latest"
   },
   "engines": {
-    "node": "4.4.1",
-    "npm": "2.14.20"
+    "node": "6.9.1",
+    "npm": "3.10.8"
   }
 }

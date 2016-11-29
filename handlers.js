@@ -10,7 +10,7 @@ module.exports = function (bot) {
             .toArray()
             .then(function (res) {
                 for (var i = 0; i < res.length; i++) {
-                    console.log(ev)
+                    console.log(res[i])
                 }
                 // console.log(res)
             })

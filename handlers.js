@@ -9,7 +9,7 @@ module.exports = function (bot) {
         events_collection.find({}, {_id: 0})
             .toArray()
             .then(function (res) {
-                for (var i in res) {
+                for (var i = 0; i < res.length; i++) {
                     console.log(ev)
                 }
                 // console.log(res)

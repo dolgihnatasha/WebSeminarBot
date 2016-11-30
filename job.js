@@ -15,7 +15,7 @@ function switchOnNotifications(events_collection, subscribers_collection) {
                 .toArray()
                 .then(function (subscribers) {
                     // console.log(events, subscribers)
-                    sendMessages(events, subscribers)
+                    // sendMessages(events, subscribers)
                 });
         })
 }
@@ -26,7 +26,7 @@ function sendMessages(events, subscribers) {
         if (events[i].event_date)
         for (var j = 0; i < subscribers.length; j++) {
             console.log(subscribers[j]);
-            bot.sendMessage(subscribers[j].id, events[j]);
+            // bot.sendMessage(subscribers[j].id, events[j]);
         }
     }
 }
@@ -40,4 +40,23 @@ MongoClient.connect(mongoUri, function (err, db) {
         switchOnNotifications(events, subscribers);
     }
 });
+
+var n = new Date();
+
+// console.log(n);
+// console.log(t.toString());
+// console.log(t-n);
+setTimeout(initTimers, 0, 1);
 bot.sendMessage(103745732, 'i\'m on');
+var i = 1;
+function initTimers() {
+    callback(1);
+    setInterval(callback, 1000*10);
+}
+
+function callback() {
+    console.log(i);
+    bot.sendMessage(103745732, i.toString());
+    i += 1;
+}
+

@@ -30,7 +30,6 @@
   },
   "history_url":"https://webseminar-bot.scm.azurewebsites.net/api/triggeredwebjobs/astg/history",
   "scheduler_logs_url":"https://webseminar-bot.scm.azurewebsites.net/vfs/data/jobs/triggered/astg/job_scheduler.log",
-  "name":"astg",
   "run_command":"job.js",
   "url":"https://webseminar-bot.scm.azurewebsites.net/api/triggeredwebjobs/astg",
   "extra_info_url":"https://webseminar-bot.scm.azurewebsites.net/azurejobs/#/jobs/triggered/astg",

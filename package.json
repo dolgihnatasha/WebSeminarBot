@@ -14,27 +14,5 @@
   "engines": {
     "node": "6.9.1",
     "npm": "3.10.8"
-  },
-  "latest_run": {
-    "id":"201611291806000176",
-    "name":"201611291806000176",
-    "status":"Running",
-    "start_time":"2016-11-29T18:06:00.0176754Z",
-    "end_time":"0001-01-01T00:00:00",
-    "duration":"00:56:56.5279104",
-    "output_url":"https://webseminar-bot.scm.azurewebsites.net/vfs/data/jobs/triggered/astg/201611291806000176/output_log.txt",
-    "error_url":null,
-    "url":"https://webseminar-bot.scm.azurewebsites.net/api/triggeredwebjobs/astg/history/201611291806000176",
-    "job_name":"astg",
-    "trigger": "Schedule - 0 0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58 * * * *"
-  },
-  "history_url":"https://webseminar-bot.scm.azurewebsites.net/api/triggeredwebjobs/astg/history",
-  "scheduler_logs_url":"https://webseminar-bot.scm.azurewebsites.net/vfs/data/jobs/triggered/astg/job_scheduler.log",
-  "run_command":"job.js",
-  "url":"https://webseminar-bot.scm.azurewebsites.net/api/triggeredwebjobs/astg",
-  "extra_info_url":"https://webseminar-bot.scm.azurewebsites.net/azurejobs/#/jobs/triggered/astg",
-  "type":"triggered",
-  "error":null,
-  "using_sdk":false,
-  "settings":{"schedule":"0 0/2 * * * *"}
+  }
 }

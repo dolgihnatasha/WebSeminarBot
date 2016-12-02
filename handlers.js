@@ -50,13 +50,14 @@ module.exports = function (bot) {
         no_repeat: 'Без повтрений'
     };
     var date_options = {
+        hour12: false,
         year: 'numeric',
         month: 'numeric',
         day: 'numeric',
-        timezone: 'UTC+05:00',
         hour: 'numeric',
         minute: 'numeric',
-        second: 'numeric'
+        second: 'numeric',
+        weekday: "short"
     };
 
     var msInDay = 1000 * 60 * 60 * 24;
@@ -81,6 +82,7 @@ module.exports = function (bot) {
             if (res.length == 0) {
                 return 'Событий не запланировано';
             }
+            // console.log(res)
             for (var i = 0; i < res.length; i++) {
                 if (res[i].event_date - Date.now() < 0) {
                     var d = res[i].event_date;
@@ -104,12 +106,14 @@ module.exports = function (bot) {
                     }
                     res[i].event_date = day;
                 }
-
-                var s = res[i].event_name + ' ' + (res[i].event_date).toLocaleString('ru', date_options) + ' (' +
+                d = (res[i].event_date).getTimezoneOffset();
+                (res[i].event_date).setMinutes((res[i].event_date).getMinutes() + (d + 60*5));
+                var s = res[i].event_name + ' ' + (res[i].event_date).toLocaleString('ru-RU', date_options) + ' (' +
                     toText[res[i].repeat].toLowerCase() + ')';
                 formatted += s + '\n';
             }
             return formatted;
+
         }
 
         if (!err) {

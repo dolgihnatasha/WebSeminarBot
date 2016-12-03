@@ -163,7 +163,7 @@ module.exports = function (bot) {
             });
 
             bot.onText(/\/events/, function (msg) {
-                var fromID = msg.from.id;
+                var fromID = msg.chat.id;
                 events.find({}, {_id: 0})
                     .toArray()
                     .then(formatEvents)

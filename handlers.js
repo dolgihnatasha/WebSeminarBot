@@ -172,6 +172,12 @@ module.exports = function (bot) {
                     .then(sendEvents(fromID));
             });
 
+            bot.onText(/\/start/, function (msg) {
+                var chatID = msg.chat.id;
+                bot.sendMessage(chatID, '/addevent - добавить новое событие \n' +
+                '/events - показать все события')
+            })
+
             bot.on('message', function (msg) {
                 var fromID = msg.from.id;
                 var chatID = msg.chat.id;

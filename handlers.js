@@ -134,21 +134,22 @@ module.exports = function (bot) {
             });
 
             bot.onText(/\/echo (.+)/, function (msg, match) {
-                var fromId = msg.from.id;
+                var chatID = msg.chat.id;
                 var resp = match[1];
-                bot.sendMessage(fromId, resp);
+                bot.sendMessage(chatID, resp);
             });
 
             bot.onText(/\/subscribe/, function (msg) {
                 var fromId = msg.from.id;
+                var chatID = msg.chat.id;
                 subscribers.find({id: fromId})
                     .toArray()
                     .then(function (result) {
                         if (result.length === 0) {
                             subscribers.insertOne(msg.from);
-                            bot.sendMessage(fromId, "Вы подписались на рассылку!");
+                            bot.sendMessage(chatID, "Вы подписались на рассылку!");
                         } else {
-                            bot.sendMessage(fromId, "Вы уже подписанны");
+                            bot.sendMessage(chatID, "Вы уже подписанны");
                         }
                     });
             });
@@ -157,9 +158,10 @@ module.exports = function (bot) {
             var event = {};
             bot.onText(/\/addevent/, function (msg){
                 var fromID = msg.from.id;
+                var chatID = msg.chat.id;
                 waiting[fromID] = {};
                 waiting[fromID].event_name = true;
-                bot.sendMessage(fromID, 'Введите название события:')
+                bot.sendMessage(chatID, 'Введите название события:')
             });
 
             bot.onText(/\/events/, function (msg) {
@@ -187,11 +189,11 @@ module.exports = function (bot) {
                     if (!isNaN(d.valueOf())){
                         event[fromID].event_date = d;
                         waiting[fromID] = {};
-                        bot.sendMessage(msg.from.id, 'Частота повторения:', options);
+                        bot.sendMessage(chatID, 'Частота повторения:', options);
                     } else if (msg.text == 'test') {
                         event[fromID].event_date = new Date();
                         waiting[fromID] = {};
-                        bot.sendMessage(msg.from.id, 'Частота повторения:', options);
+                        bot.sendMessage(chatID, 'Частота повторения:', options);
                     } else {
                         bot.sendMessage(chatID, 'Время введено неверно. Введите дату и врямя ' +
                             'в формате ГГГГ-ММ-ДД ЧЧ:ММ. \nДля отмены  отправте /chancel')

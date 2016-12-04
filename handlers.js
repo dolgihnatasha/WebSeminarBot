@@ -56,8 +56,7 @@ module.exports = function (bot) {
         day: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
-        second: 'numeric',
-        weekday: "short"
+        second: 'numeric'
     };
 
     var msInDay = 1000 * 60 * 60 * 24;

@@ -76,34 +76,36 @@ module.exports = function (bot) {
         console.log('hey', err);
         function formatEvents(res) {
             var formatted = '';
+            var now = new Date();
             res = res.filter(function (e) {
-                return !(e.repeat == 'no_repeat' && e.event_date - Date.now() < 0);
+                return !(e.repeat == 'no_repeat' && e.event_date - now < 0);
             });
             if (res.length == 0) {
                 return 'Событий не запланировано';
             }
             // console.log(res)
             for (var i = 0; i < res.length; i++) {
-                if (res[i].event_date - Date.now() < 0) {
+                if (res[i].event_date - now < 0) {
                     var d = res[i].event_date;
                     var day = new Date();
+
                     day.setHours(d.getHours(), d.getMinutes(), d.getSeconds());
                     switch (res[i].repeat) {
                         case 'daily':
-                            if (day <= Date.now()) {
+                            if (day <= now) {
                                 day.setDate(day.getDay() + 1)
                             }
                             break;
 
                         case 'weekly':
-                            var r = Math.trunc((Date.now() - d) / msInDay);
-                            if (day <= Date.now()) {
-                                if (r !== 0) {
-                                    day.setDate(day.getDate() +  7 - (r % 7));
-                                }
+                            var r = Math.trunc((now - d) / msInDay);
+                            day.setDate(d.getDate() + (Math.trunc(r / 7)) * 7);
+                            if (day <= now && day.getDate() !== now.getDate()) {
+                                day.setDate(d.getDate() + 7);
                             }
                             break;
                     }
+                    console.log(day);
                     res[i].event_date = day;
                 }
                 d = (res[i].event_date).getTimezoneOffset();

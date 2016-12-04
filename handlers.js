@@ -87,9 +87,7 @@ module.exports = function (bot) {
                 if (res[i].event_date - Date.now() < 0) {
                     var d = res[i].event_date;
                     var day = new Date();
-                    day.setHours(d.getHours());
-                    day.setMinutes(d.getMinutes());
-                    day.setSeconds(d.getSeconds());
+                    day.setHours(d.getHours(), d.getMinutes(), d.getSeconds());
                     switch (res[i].repeat) {
                         case 'daily':
                             if (day <= Date.now()) {
@@ -100,7 +98,9 @@ module.exports = function (bot) {
                         case 'weekly':
                             var r = Math.trunc((Date.now() - d) / msInDay);
                             if (day <= Date.now()) {
-                                day.setDate(day.getDate() + r % 7);
+                                if (r !== 0) {
+                                    day.setDate(day.getDate() +  7 - (r % 7));
+                                }
                             }
                             break;
                     }
@@ -176,7 +176,7 @@ module.exports = function (bot) {
                 var chatID = msg.chat.id;
                 bot.sendMessage(chatID, '/addevent - добавить новое событие \n' +
                 '/events - показать все события')
-            })
+            });
 
             bot.on('message', function (msg) {
                 var fromID = msg.from.id;

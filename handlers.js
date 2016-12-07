@@ -210,5 +210,5 @@ module.exports = function (bot) {
         }
 
     });
-    bot.sendMessage(103745732, 'i\'m on');
+    //bot.sendMessage(103745732, 'i\'m on');
 };
